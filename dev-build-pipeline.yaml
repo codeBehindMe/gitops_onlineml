@@ -1,0 +1,13 @@
+trigger:
+- dev
+
+pool:
+  vm-image: 'ubuntu-latest'
+
+steps:
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.7'
+    architecture: 'x64'
+- script: pip install -r requirements.txt
+  displayName: 'Installing requirements'
