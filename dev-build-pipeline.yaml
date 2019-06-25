@@ -14,8 +14,10 @@ steps:
   displayName: 'Installing requirements'
 - script: ls -l
   displayName: 'Checksck directory'
-- script: 'pytest --junitxml=../reports/gitops.xml'
+- script: 'pytest --junitxml=reports/gitops.xml'
   displayName: 'Running tests'
+- script: 'ls -l'
+  displayName: List files
 - task: PublishTestResults@2
   inputs:
     testResultsFiles: 'reports/gitops.xml'
