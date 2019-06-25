@@ -14,5 +14,10 @@ steps:
   displayName: 'Installing requirements'
 - script: ls -l
   displayName: 'Checksck directory'
-- script: 'pytest --junitxml=../../reports/gitops.xml'
+- script: 'pytest --junitxml=../reports/gitops.xml'
   displayName: 'Running tests'
+- task: PublishTestResults@2
+  inputs:
+    testResultsFiles: 'reports/gitops.xml'
+    testRunTitle: '$(Agent.OS) - $(Build.BuildNumber)[$(Agent.JobName)] - Python $(python.version)'
+  condition: succeededOrFailed()
