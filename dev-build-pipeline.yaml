@@ -12,12 +12,8 @@ steps:
     architecture: 'x64'
 - script: pip install -r requirements.txt
   displayName: 'Installing requirements'
-- script: ls -l
-  displayName: 'Checksck directory'
 - script: 'pytest --junitxml=reports/gitops.xml'
   displayName: 'Running tests'
-- script: 'ls -l'
-  displayName: List files
 - task: PublishTestResults@2
   inputs:
     testResultsFiles: 'reports/gitops.xml'
