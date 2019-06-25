@@ -13,6 +13,6 @@ steps:
 - script: pip install -r requirements.txt
   displayName: 'Installing requirements'
 - script: ls -l
-  displayName: 'Check directory'
-#- script: 'pytest --junitxlm=../../reports/gitops.xml'
-#  displayName: 'Running tests'
+  displayName: 'Checksck directory'
+- script: 'pytest test --junitxlm=../../reports/gitops.xml'
+  displayName: 'Running tests'
